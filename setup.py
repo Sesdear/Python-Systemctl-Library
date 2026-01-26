@@ -11,7 +11,7 @@ setup(
   version='0.0.1',
   author='hlnikniky',
   author_email='orekhovs09@gmail.com',
-  description='Simple module for control status of systemctl service',
+  description='Simple libary for control status of systemctl service',
   long_description=readme(),
   long_description_content_type='text/markdown',
   url='sesdear.github.io',
