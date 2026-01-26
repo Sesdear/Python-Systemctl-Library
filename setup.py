@@ -14,7 +14,7 @@ setup(
   description='Simple libary for control status of systemctl service',
   long_description=readme(),
   long_description_content_type='text/markdown',
-  url='sesdear.github.io',
+  url='https://github.com/Sesdear/Python-Systemctl-Libary',
   packages=find_packages(),
   install_requires=[],
   classifiers=[
@@ -24,7 +24,7 @@ setup(
   ],
   keywords='systemctl service control status',
   project_urls={
-    'GitHub': 'github.com/sesdear/pysysctllib'
+    'GitHub': 'https://github.com/Sesdear/Python-Systemctl-Libary'
   },
   python_requires='>=3.6'
 )
