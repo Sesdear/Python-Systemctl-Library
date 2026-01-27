@@ -11,7 +11,7 @@ The library exposes a single high-level class, `Systemctl`, mapping one-to-one t
 From PyPI:
 
 ```bash
-pip install python-systemctl-libary
+pip install pysysctllib
 ```
 
 From source:
