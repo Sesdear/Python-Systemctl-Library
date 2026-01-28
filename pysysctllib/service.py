@@ -1,4 +1,4 @@
-
+from .modules.status import StatusModel
 class Systemctl:
     def __init__(self, name):
         self.name = name
@@ -27,13 +27,13 @@ class Systemctl:
         from .modules.stop import stop
         return stop(self.name)
     
-    def status(self) -> str:
+    def status(self) -> StatusModel:
         """
         
-        Get the current status of the service.
+        Get the current status parameters of the service.
 
         Returns:
-            str: Returns the status of the service as a string.
+            StatusModel: model with all aspects in out systemctl status example.service
             
         """
         from .modules.status import status
