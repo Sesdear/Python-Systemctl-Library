@@ -8,7 +8,7 @@ def readme():
 
 setup(
   name='pysysctllib',
-  version='0.0.3',
+  version='0.0.4',
   author='hlnikniky',
   author_email='orekhovs09@gmail.com',
   description='Simple libary for control status of systemctl service',
