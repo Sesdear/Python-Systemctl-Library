@@ -101,7 +101,7 @@ Service unit controller bound to a specific systemd unit name.
 
 ### State and Metadata
 
-* `status() -> str`
+* `status() -> StatusModel`
 * `is_active() -> bool`
 * `get_main_pid() -> int`
 * `get_description() -> str`
