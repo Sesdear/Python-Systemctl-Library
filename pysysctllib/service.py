@@ -1,231 +1,206 @@
 from .modules.status import StatusModel
 from .modules.show_full import ShowModel
+
+
 class Systemctl:
-    def __init__(self, name, **kwargs):
-        self.name = name
-        self.value = kwargs.get("value", None)
+    def __init__(self, service_name: str, **kwargs):
+        """
+        Create a Systemctl wrapper for a systemd service.
+
+        Args:
+            service_name: Name of the systemd service.
+            **kwargs: Optional parameters.
+                parameter: Service parameter name for the `show` method.
+        """
+        self.service_name = service_name
+        self.value = kwargs.get("parameter", "")
 
     def show_full(self) -> ShowModel:
         """
-        
-        Show service infiormation by its name
+        Get full service information.
 
         Returns:
-            ShowModel: Return full show log
-            
+            ShowModel: Model containing all available service properties.
         """
         from .modules.show_full import show_full
-        return show_full(self.name)
-    
+        return show_full(self.service_name)
+
     def show(self) -> str:
         """
-        
-        Show simple service parameter infiormation by its name, parameter
+        Get a specific service parameter value.
 
         Returns:
-            str: Return value of parameter
+            str: Value of the requested service parameter.
         """
-    
+        from .modules.show import show
+        return show(name=self.service_name, parameter=self.value)
+
     def start(self) -> bool:
         """
-        
-        Start service by its name.
+        Start the service.
 
         Returns:
-            bool: Returns True if the service started successfully, False otherwise.
-            
+            bool: True if the service started successfully, False otherwise.
         """
         from .modules.start import start
-        return start(self.name)
-        
+        return start(self.service_name)
+
     def stop(self) -> bool:
         """
-        
-        Stop service by its name.
+        Stop the service.
 
         Returns:
-            bool: Returns True if the service stopped successfully, False otherwise.
-            
+            bool: True if the service stopped successfully, False otherwise.
         """
         from .modules.stop import stop
-        return stop(self.name)
-    
+        return stop(self.service_name)
+
     def status(self) -> StatusModel:
         """
-        
-        Get the current status parameters of the service.
+        Get the current service status.
 
         Returns:
-            StatusModel: model with all aspects in out systemctl status example.service
-            
+            StatusModel: Model containing service status information.
         """
         from .modules.status import status
-        return status(self.name)
-        
+        return status(self.service_name)
+
     def restart(self) -> bool:
         """
-        
-        Restart service by its name.
+        Restart the service.
 
         Returns:
-            bool: Returns True if the service restarted successfully, False otherwise.
-            
+            bool: True if the service restarted successfully, False otherwise.
         """
         from .modules.restart import restart
-        return restart(self.name)
-    
+        return restart(self.service_name)
+
     def enable(self) -> bool:
         """
-        
-        Enable service by its name.
+        Enable the service at boot.
 
         Returns:
-            bool: Returns True if the service was enabled successfully, False otherwise.
-            
+            bool: True if the service was enabled successfully, False otherwise.
         """
         from .modules.enable import enable
-        return enable(self.name)
-        
+        return enable(self.service_name)
+
     def disable(self) -> bool:
         """
-        
-        Disable service by its name.
+        Disable the service at boot.
 
         Returns:
-            bool: Returns True if the service was disabled successfully, False otherwise.
-            
+            bool: True if the service was disabled successfully, False otherwise.
         """
         from .modules.disable import disable
-        return disable(self.name)
-        
+        return disable(self.service_name)
+
     def is_enabled(self) -> bool:
         """
-        
-        Check if the service is enabled.
+        Check whether the service is enabled.
 
         Returns:
-            bool: Returns True if the service is enabled, False otherwise.
-            
+            bool: True if the service is enabled, False otherwise.
         """
         from .modules.is_enabled import is_enabled
-        return is_enabled(self.name)
-    
+        return is_enabled(self.service_name)
+
     def is_active(self) -> bool:
         """
-        
-        Check if the service is active.
+        Check whether the service is active.
 
         Returns:
-            bool: Returns True if the service is active, False otherwise.
-            
+            bool: True if the service is active, False otherwise.
         """
         from .modules.is_active import is_active
-        return is_active(self.name)
-    
+        return is_active(self.service_name)
+
     def reload(self) -> bool:
         """
-        
-        Reload service by its name.
+        Reload the service configuration.
 
         Returns:
-            bool: Returns True if the service reloaded successfully, False otherwise.
-            
+            bool: True if the service was reloaded successfully, False otherwise.
         """
         from .modules.reload import reload
-        return reload(self.name)
-    
+        return reload(self.service_name)
+
     def mask(self) -> bool:
         """
-        
-        Mask service by its name.
+        Mask the service.
 
         Returns:
-            bool: Returns True if the service was masked successfully, False otherwise.
-            
+            bool: True if the service was masked successfully, False otherwise.
         """
         from .modules.mask import mask
-        return mask(self.name)
-    
+        return mask(self.service_name)
+
     def unmask(self) -> bool:
         """
-        
-        Unmask service by its name.
+        Unmask the service.
 
         Returns:
-            bool: Returns True if the service was unmasked successfully, False otherwise.
-            
+            bool: True if the service was unmasked successfully, False otherwise.
         """
         from .modules.unmask import unmask
-        return unmask(self.name)
-    
+        return unmask(self.service_name)
+
     def is_masked(self) -> bool:
         """
-        
-        Check if the service is masked.
+        Check whether the service is masked.
 
         Returns:
-            bool: Returns True if the service is masked, False otherwise.
-            
+            bool: True if the service is masked, False otherwise.
         """
         from .modules.is_masked import is_masked
-        return is_masked(self.name)
-    
+        return is_masked(self.service_name)
+
     def get_main_pid(self) -> int:
         """
-        
         Get the main PID of the service.
 
         Returns:
-            int: Returns the main PID of the service, or -1 if not available.
-            
+            int: Main PID of the service, or -1 if not available.
         """
         from .modules.get_main_pid import get_main_pid
-        return get_main_pid(self.name)
-    
+        return get_main_pid(self.service_name)
+
     def get_description(self) -> str:
         """
-        
-        Get the description of the service.
+        Get the service description.
 
         Returns:
-            str: Returns the description of the service.
-            
+            str: Service description.
         """
         from .modules.get_description import get_description
-        return get_description(self.name)
-    
+        return get_description(self.service_name)
+
     def get_unit_file_state(self) -> str:
         """
-        
         Get the unit file state of the service.
 
         Returns:
-            str: Returns the unit file state of the service.
-            
+            str: Unit file state.
         """
         from .modules.get_unit_file_state import get_unit_file_state
-        return get_unit_file_state(self.name)
-    
+        return get_unit_file_state(self.service_name)
+
     def reload_daemon(self) -> bool:
         """
-        
         Reload the systemd manager configuration.
 
         Returns:
-            bool: Returns True if the daemon reloaded successfully, False otherwise.
-            
+            bool: True if the daemon was reloaded successfully, False otherwise.
         """
         from .modules.reload_daemon import reload_daemon
         return reload_daemon()
-    
+
     def list_dependencies(self) -> list:
         """
-        
-        List the dependencies of the service.
+        List service dependencies.
 
         Returns:
-            list: Returns a list of dependencies for the service.
-            
+            list: List of service dependencies.
         """
         from .modules.list_dependencies import list_dependencies
-        return list_dependencies(self.name)
+        return list_dependencies(self.service_name)
