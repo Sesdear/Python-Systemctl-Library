@@ -55,6 +55,8 @@ svc.is_active()
 svc.is_enabled()
 svc.is_masked()
 
+svc.show()
+svc.show_full()
 svc.status()
 svc.get_main_pid()
 svc.get_description()
@@ -101,6 +103,8 @@ Service unit controller bound to a specific systemd unit name.
 
 ### State and Metadata
 
+* `show() -> str`
+* `show_full() -> ShowModel`
 * `status() -> StatusModel`
 * `is_active() -> bool`
 * `get_main_pid() -> int`
