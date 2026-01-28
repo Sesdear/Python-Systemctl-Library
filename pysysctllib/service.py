@@ -1,8 +1,31 @@
 from .modules.status import StatusModel
+from .modules.show_full import ShowModel
 class Systemctl:
-    def __init__(self, name):
+    def __init__(self, name, **kwargs):
         self.name = name
+        self.value = kwargs.get("value", None)
 
+    def show_full(self) -> ShowModel:
+        """
+        
+        Show service infiormation by its name
+
+        Returns:
+            ShowModel: Return full show log
+            
+        """
+        from .modules.show_full import show_full
+        return show_full(self.name)
+    
+    def show(self) -> str:
+        """
+        
+        Show simple service parameter infiormation by its name, value
+
+        Returns:
+            str: Return value of parameter
+        """
+    
     def start(self) -> bool:
         """
         
