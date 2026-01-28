@@ -12,7 +12,6 @@ class ShowModel:
         self.UnitFilePreset = None
         self.Transient = None
         self.Perpetual = None
-        
         # Unit States
         self.LoadState = None
         self.ActiveState = None
@@ -23,7 +22,6 @@ class ShowModel:
         self.ReloadResult = None
         self.CleanResult = None
         self.LiveMountResult = None
-        
         # Dependencies and Ordering
         self.Requires = None
         self.Wants = None
@@ -34,7 +32,6 @@ class ShowModel:
         self.DefaultDependencies = None
         self.IgnoreOnIsolate = None
         self.StopWhenUnneeded = None
-        
         # Timestamps
         self.StateChangeTimestamp = None
         self.StateChangeTimestampMonotonic = None
@@ -50,7 +47,6 @@ class ShowModel:
         self.ConditionTimestampMonotonic = None
         self.AssertTimestamp = None
         self.AssertTimestampMonotonic = None
-        
         # Execution Control
         self.CanStart = None
         self.CanStop = None
@@ -61,7 +57,6 @@ class ShowModel:
         self.RefuseManualStart = None
         self.RefuseManualStop = None
         self.AllowIsolate = None
-        
         # Service Type and Restart
         self.Type = None
         self.ExitType = None
@@ -72,13 +67,11 @@ class ShowModel:
         self.RestartMaxDelayUSec = None
         self.RestartUSecNext = None
         self.RemainAfterExit = None
-        
         # Process Information
         self.MainPID = None
         self.ControlPID = None
         self.GuessMainPID = None
         self.NRestarts = None
-        
         # Exec Commands
         self.ExecStart = None
         self.ExecStartEx = None
@@ -90,7 +83,6 @@ class ShowModel:
         self.ExecMainStartTimestampMonotonic = None
         self.ExecMainExitTimestampMonotonic = None
         self.ExecMainHandoffTimestampMonotonic = None
-        
         # Timeouts
         self.TimeoutStartUSec = None
         self.TimeoutStopUSec = None
@@ -98,26 +90,22 @@ class ShowModel:
         self.TimeoutCleanUSec = None
         self.TimeoutStartFailureMode = None
         self.TimeoutStopFailureMode = None
-        
         # Job Control
         self.JobTimeoutUSec = None
         self.JobRunningTimeoutUSec = None
         self.JobTimeoutAction = None
         self.OnSuccessJobMode = None
         self.OnFailureJobMode = None
-        
         # Start Limits
         self.StartLimitIntervalUSec = None
         self.StartLimitBurst = None
         self.StartLimitAction = None
         self.FailureAction = None
         self.SuccessAction = None
-        
         # Resource Control (cgroups)
         self.Slice = None
         self.ControlGroup = None
         self.ControlGroupId = None
-        
         # Memory Resources
         self.MemoryCurrent = None
         self.MemoryPeak = None
@@ -142,7 +130,6 @@ class ShowModel:
         self.StartupMemoryMax = None
         self.StartupMemorySwapMax = None
         self.StartupMemoryZSwapMax = None
-        
         # CPU Resources
         self.CPUUsageNSec = None
         self.CPUWeight = None
@@ -153,7 +140,6 @@ class ShowModel:
         self.CPUSchedulingPriority = None
         self.CPUAffinityFromNUMA = None
         self.CPUSchedulingResetOnFork = None
-        
         # IO Resources
         self.IOAccounting = None
         self.IOWeight = None
@@ -164,20 +150,17 @@ class ShowModel:
         self.IOWriteOperations = None
         self.IOSchedulingClass = None
         self.IOSchedulingPriority = None
-        
         # Tasks and Processes
         self.TasksCurrent = None
         self.TasksMax = None
         self.EffectiveTasksMax = None
         self.TasksAccounting = None
-        
         # Network
         self.IPAccounting = None
         self.IPIngressBytes = None
         self.IPIngressPackets = None
         self.IPEgressBytes = None
         self.IPEgressPackets = None
-        
         # User and Permissions
         self.UID = None
         self.GID = None
@@ -188,7 +171,6 @@ class ShowModel:
         self.SetLoginEnvironment = None
         self.RemoveIPC = None
         self.Nice = None
-        
         # Security and Sandboxing
         self.AccessSELinuxContext = None
         self.NoNewPrivileges = None
@@ -197,7 +179,6 @@ class ShowModel:
         self.ProcSubset = None
         self.ProtectHostname = None
         self.LockPersonality = None
-        
         # Private Directories and Mounts
         self.PrivateTmp = None
         self.PrivateTmpEx = None
@@ -209,7 +190,6 @@ class ShowModel:
         self.PrivateIPC = None
         self.PrivatePIDs = None
         self.PrivateBPF = None
-        
         # Protection Flags
         self.ProtectHome = None
         self.ProtectSystem = None
@@ -223,13 +203,11 @@ class ShowModel:
         self.RestrictRealtime = None
         self.RestrictSUIDSGID = None
         self.RestrictNamespaces = None
-        
         # Namespaces
         self.Delegate = None
         self.DelegateNamespaces = None
         self.MountAPIVFS = None
         self.BindLogSockets = None
-        
         # Directories
         self.RuntimeDirectoryPreserve = None
         self.RuntimeDirectoryMode = None
@@ -243,7 +221,6 @@ class ShowModel:
         self.LogsDirectoryAccounting = None
         self.LogsDirectoryQuota = None
         self.ConfigurationDirectoryMode = None
-        
         # Signals and Kill
         self.KillMode = None
         self.KillSignal = None
@@ -254,16 +231,13 @@ class ShowModel:
         self.WatchdogSignal = None
         self.ReloadSignal = None
         self.IgnoreSIGPIPE = None
-        
         # Watchdog
         self.WatchdogUSec = None
         self.WatchdogTimestampMonotonic = None
-        
         # File Descriptors
         self.FileDescriptorStoreMax = None
         self.NFileDescriptorStore = None
         self.FileDescriptorStorePreserve = None
-        
         # OOM (Out Of Memory)
         self.OOMPolicy = None
         self.OOMScoreAdjust = None
@@ -272,50 +246,39 @@ class ShowModel:
         self.ManagedOOMMemoryPressureLimit = None
         self.ManagedOOMMemoryPressureDurationUSec = None
         self.ManagedOOMPreference = None
-        
         # Memory Pressure
         self.MemoryPressureWatch = None
         self.MemoryPressureThresholdUSec = None
-        
         # Coredump
         self.CoredumpReceive = None
         self.CoredumpFilter = None
-        
         # Runtime Limits
         self.RuntimeMaxUSec = None
         self.RuntimeRandomizedExtraUSec = None
-        
         # System Calls
         self.SystemCallErrorNumber = None
-        
         # Conditions and Assertions
         self.ConditionResult = None
         self.AssertResult = None
-        
         # Misc Flags
         self.SurviveFinalKillSignal = None
         self.RootDirectoryStartOnly = None
         self.SameProcessGroup = None
         self.UtmpMode = None
         self.RootEphemeral = None
-        
         # NUMA Policy
         self.NUMAPolicy = None
-        
         # Timer Slack
         self.TimerSlackNSec = None
-        
         # Standard Streams
         self.StandardInput = None
         self.StandardOutput = None
         self.StandardError = None
         self.NonBlocking = None
-        
         # TTY Settings
         self.TTYReset = None
         self.TTYVHangup = None
         self.TTYVTDisallocate = None
-        
         # Logging and Syslog
         self.SyslogPriority = None
         self.SyslogLevelPrefix = None
@@ -324,23 +287,18 @@ class ShowModel:
         self.LogLevelMax = None
         self.LogRateLimitIntervalUSec = None
         self.LogRateLimitBurst = None
-        
         # Collect Mode
         self.CollectMode = None
         self.DebugInvocation = None
         self.InvocationID = None
-        
         # Need Daemon Reload
         self.NeedDaemonReload = None
-        
         # KSM (Kernel Samepage Merging)
         self.MemoryKSM = None
-        
         # Image Policies
         self.RootImagePolicy = None
         self.MountImagePolicy = None
         self.ExtensionImagePolicy = None
-        
         # Resource Limits (ulimit)
         self.LimitCPU = None
         self.LimitCPUSoft = None
@@ -374,19 +332,10 @@ class ShowModel:
         self.LimitRTPRIOSoft = None
         self.LimitRTTIME = None
         self.LimitRTTIMESoft = None
-        
         # Notify Access
         self.NotifyAccess = None
         self.DevicePolicy = None
         
-    def to_dict(self) -> Dict[str, Any]:
-        """Convert model to dictionary"""
-        result = {}
-        for key, value in self.__dict__.items():
-            if not key.startswith('_'):
-                result[key] = value
-        return result
-
 def show_full(service_name: str) -> ShowModel:
     import re
     import subprocess

@@ -20,7 +20,7 @@ class Systemctl:
     def show(self) -> str:
         """
         
-        Show simple service parameter infiormation by its name, value
+        Show simple service parameter infiormation by its name, parameter
 
         Returns:
             str: Return value of parameter
