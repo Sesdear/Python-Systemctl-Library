@@ -1,4 +1,4 @@
-# Python-Systemctl-Libary
+# Python-Systemctl-Library
 
 Python library providing a direct interface to **systemd** via `systemctl` for service management and inspection.
 
