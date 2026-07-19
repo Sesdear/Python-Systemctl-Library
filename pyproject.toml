@@ -1,16 +1,39 @@
 [project]
 name = "pysysctllib"
-version = "0.1.0"
-description = "Simple libarary for control systemctl services"
+version = "0.0.6"
+description = "Simple libarary for controlling systemd services"
 authors = [
     {name = "hlnikniky",email = "orekhovs09@gmail.com"}
 ]
-license = "GPL-3.0"
+license = "GPL-2.0-only"
+
 readme = "README.md"
+
 requires-python = ">=3.11"
+
+keywords = [
+    "systemctl",
+    "systemd",
+    "service",
+    "linux"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+    "Operating System :: POSIX :: Linux"
+]
+
+packages = [
+    { include = "pysysctllib" }
+]
 dependencies = [
 ]
 
+[project.urls]
+Homepage = "https://github.com/Sesdear/Python-Systemctl-Library"
+Repository = "https://github.com/Sesdear/Python-Systemctl-Library"
+Issues = "https://github.com/Sesdear/Python-Systemctl-Library/issues"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
