@@ -169,10 +169,27 @@ class Systemctl:
     def status(self) -> (StatusModel | None):
         """
         Return general service information
-        active state, unit file state, service path, sub state and main pid
 
         Returns:
-            StatusModel: _description_
+            StatusModel: model with active state, unit file state, service path, sub state and main pid
         """
         from .modules.unit.status import status
         return status(service_name=self.service_name)
+    def unit_file_state(self) -> (str | None):
+        """
+        Return unit file state string
+
+        Returns:
+            str: enabled, disabled, masked
+        """
+        from .modules.unit.unit_file_state import unit_file_state
+        return unit_file_state(service_name=self.service_name)
+    def main_pid(self) -> (str | None):
+        """
+        Return main pid of unit
+
+        Returns:
+            str: main pid
+        """
+        from .modules.unit.main_pid import main_pid
+        return main_pid(service_name=self.service_name)
