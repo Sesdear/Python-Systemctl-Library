@@ -40,29 +40,9 @@ from pysysctllib import Systemctl
 
 svc = Systemctl("nginx.service")
 
-svc.start() 
-svc.stop()
-svc.restart()
-svc.reload()
-
-svc.enable()
-svc.disable()
-
-svc.mask()
-svc.unmask()
-
-svc.is_active()
-svc.is_enabled()
-svc.is_masked()
-
-svc.properites()
-svc.status()
-svc.list_dependencies()
-svc.unit_file_state()
-svc.main_pid()
-
-
-svc.reload_daemon()
+if svc.reload_daemon():
+    print("Daemon reload success!")
+    
 ```
 
 ---
