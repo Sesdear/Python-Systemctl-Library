@@ -40,7 +40,7 @@ from pysysctllib import Systemctl
 
 svc = Systemctl("nginx.service")
 
-svc.start()
+svc.start() 
 svc.stop()
 svc.restart()
 svc.reload()
@@ -55,10 +55,12 @@ svc.is_active()
 svc.is_enabled()
 svc.is_masked()
 
-svc.show()
-svc.show_full()
+svc.properites()
 svc.status()
 svc.list_dependencies()
+svc.unit_file_state()
+svc.main_pid()
+
 
 svc.reload_daemon()
 ```
@@ -67,7 +69,7 @@ svc.reload_daemon()
 
 ## API
 
-### `Systemctl(name: str)`
+### `Systemctl(service_name: str)`
 
 Service unit controller bound to a specific systemd unit name.
 
@@ -100,13 +102,11 @@ Service unit controller bound to a specific systemd unit name.
 
 ### State and Metadata
 
-* `show() -> str`
-* `show_full() -> ShowModel`
+* `properites() -> dict` 
 * `status() -> StatusModel`
 * `is_active() -> bool`
-* `get_main_pid() -> int`
-* `get_description() -> str`
-* `get_unit_file_state() -> str`
+* `main_pid() -> int`
+* `unit_file_state() -> str`
 * `list_dependencies() -> list`
 
 ---
@@ -119,7 +119,7 @@ Service unit controller bound to a specific systemd unit name.
 
 ## License
 
-GPL-2.0
+Library use [GPL-2.0 License](LICENSE).
 
 ---
 
