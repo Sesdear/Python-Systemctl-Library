@@ -1,6 +1,4 @@
-from .modules.unit.status import StatusModel
-from .modules.unit.show_full import ShowModel
-
+from pysysctllib.models import StatusModel
 
 class Systemctl:
     def __init__(self, service_name: str, **kwargs):
@@ -154,34 +152,27 @@ class Systemctl:
         from .modules.unit.list_dependencies import list_dependencies
         return list_dependencies(self.service_name)
 
-    def show_full(self) -> ShowModel:
+    def properites(self) -> dict:
         """
-        Get full service information.
+        Get a full service information
 
-        Returns:
-            ShowModel: Model containing all available service properties.
-        """
-        from .modules.unit.show_full import show_full
-        return show_full(self.service_name)
-
-    def show(self) -> str:
-        """
-        Get a specific service parameter value.
-
-        Returns:
-            str: Value of the requested service parameter.
-        """
-        from .modules.unit.show import show
-        return show(name=self.service_name, parameter=self.value)
-
-    def status(self) -> StatusModel:
-        """
-        !!! Not Stable !!!
+        Use:
+            .propetites()
         
-        Get the current service status.
+        Returns:
+            dict: Values from show output
+        
+        
+        """
+        from .modules.unit.properties import show
+        return show(name=self.service_name)
+    def status(self) -> (StatusModel | None):
+        """
+        Return general service information
+        active state, unit file state, service path, sub state and main pid
 
         Returns:
-            StatusModel: Model containing service status information.
+            StatusModel: _description_
         """
         from .modules.unit.status import status
-        return status(self.service_name)
+        return status(service_name=self.service_name)
