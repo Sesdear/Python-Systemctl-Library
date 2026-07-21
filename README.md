@@ -1,20 +1,28 @@
-# Python-Systemctl-Library
+# Python Systemctl Library
+<p align="center">
+  <a href="https://pepy.tech/projects/pysysctllib">
+    <img src="https://static.pepy.tech/personalized-badge/pysysctllib?period=total&units=NONE&left_color=BLACK&right_color=RED&left_text=Total+downloads" alt="Total Downloads">
+  </a>
+  <a href="https://pepy.tech/projects/pysysctllib">
+    <img src="https://static.pepy.tech/personalized-badge/pysysctllib?period=monthly&units=NONE&left_color=BLACK&right_color=RED&left_text=Monthly+downloads" alt="Monthly Downloads">
+  </a>
+</p>
+<p align="center">
+  <img src="logo.svg" alt="Project Logo" width="240">
+</p>
+
 
 Python library providing a direct interface to **systemd** via `systemctl` for service management and inspection.
 
-The library exposes a single high-level class, `Systemctl`, mapping one-to-one to common `systemctl` operations and queries.
 
 ---
 
 ## Installation
-
-From PyPI:
-
+Install from PyPI:
 ```bash
 pip install pysysctllib
 ```
-
-From source:
+Or build from source:
 
 ```bash
 git clone https://github.com/Sesdear/Python-Systemctl-Libary.git
@@ -45,8 +53,16 @@ from pysysctllib import Systemctl
 
 svc = Systemctl("nginx.service")
 
-if svc.reload_daemon():
-    print("Daemon reload success!")
+if svc.start():
+    print("Start success!")
+
+print(svc.is_active())
+
+svc.restart()
+
+props = svc.properites()
+
+print(props["Description"])
 
 ```
 
@@ -58,8 +74,6 @@ if svc.reload_daemon():
 
 Service unit controller bound to a specific systemd unit name.
 
----
-
 ### Lifecycle Operations
 
 * `start() -> bool`
@@ -67,15 +81,11 @@ Service unit controller bound to a specific systemd unit name.
 * `restart() -> bool`
 * `reload() -> bool`
 
----
-
 ### Enablement
 
 * `enable() -> bool`
 * `disable() -> bool`
 * `is_enabled() -> bool`
-
----
 
 ### Masking
 
@@ -83,18 +93,14 @@ Service unit controller bound to a specific systemd unit name.
 * `unmask() -> bool`
 * `is_masked() -> bool`
 
----
-
 ### State and Metadata
 
-* `properites() -> dict` 
+* `properties() -> dict` 
 * `status() -> StatusModel`
 * `is_active() -> bool`
 * `main_pid() -> int`
 * `unit_file_state() -> str`
 * `list_dependencies() -> list`
-
----
 
 ### systemd Manager
 
@@ -104,7 +110,7 @@ Service unit controller bound to a specific systemd unit name.
 
 ## License
 
-Library use [GPL-2.0 License](LICENSE).
+Licensed under the [GPL-2.0 License](LICENSE).
 
 ---
 
