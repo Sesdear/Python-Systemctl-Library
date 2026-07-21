@@ -19,7 +19,12 @@ From source:
 ```bash
 git clone https://github.com/Sesdear/Python-Systemctl-Libary.git
 cd Python-Systemctl-Libary
-pip install .
+python -m venv .venv
+source .venv/bin/activate
+pip install poetry
+poetry build
+cd dist
+pip install pysysctllib-*.whl
 ```
 
 ---
@@ -42,7 +47,7 @@ svc = Systemctl("nginx.service")
 
 if svc.reload_daemon():
     print("Daemon reload success!")
-    
+
 ```
 
 ---
