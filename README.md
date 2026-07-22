@@ -25,8 +25,8 @@ pip install pysysctllib
 Or build from source:
 
 ```bash
-git clone https://github.com/Sesdear/Python-Systemctl-Libary.git
-cd Python-Systemctl-Libary
+git clone https://github.com/Sesdear/Python-Systemctl-Library.git
+cd Python-Systemctl-Library
 python -m venv .venv
 source .venv/bin/activate
 pip install poetry
